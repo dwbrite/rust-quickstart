@@ -1,10 +1,10 @@
-# Rust things
+# Rust Quickstart
 
-Rust is a language that does cool, but unusual things. The coolest part is that in Safe Rust, you will never encounter undefined behaviour.
+Rust is great language, if a bit unorthodox. The coolest part is that in Safe Rust, you will never encounter undefined behaviour.
 
-This little Rust booklet will explain certain concepts, but puts the responsibility of intuitive understanding on you. For example, you can read about "borrowing" and understand the concept, but you may not *intuitively understand it* until you've worked with it for a while. Good luck.
+This document explains the core concepts of Rust, but puts the responsibility of intuitive understanding on you. For example, you can read about "borrowing" and understand the concept, but you may not *intuitively understand it* until you've worked with it in Rust for a while. Good luck.
 
-I'm making this book to document how *I* learned Rust, from a fairly advanced programmer's perspective. I hope that it can be of use to you, reader, for learning Rust without having to wade through the original books.
+I'm creating this file to document how *I* learned Rust, from a fairly advanced programmer's perspective. I hope that it can be of use to you, whomever you are, for learning Rust without having to wade through the original books.
 
 This book also assumes that you've started with Cargo and already have a test project set up. If you haven't done that, check out the chapters on Cargo in the official Rust books.
 
@@ -20,7 +20,7 @@ Variables **must** be declared `mut`able if you want to modify them at any point
 Not to be confused with not including `mut`, a constant cannot be shadowed.
 
 #### shadowing
-You can "shadow" over another variable of the same name, but with a different type. This is useful in converting Strings to ints without making a second variable.
+You can "shadow" over another variable of the same name. This is useful in converting Strings to ints without making a second variable.
 
 ```rust
 let x: i32 = 5;
@@ -39,7 +39,7 @@ println!("{} + {} = {}", x, y, x + y);
 ```
 
 
-To specify a return type, use `->` after the parentheses, like so:
+To specify a return type, use `->` after the parameters, like so:
 
 ```rust
 fn double(x: i32) -> i32 {
@@ -55,7 +55,7 @@ Rust allows for the native use of arrays and tuples (Compound data types) alongs
 Single values, basically what you'd expect. Ints, floats, chars, and single objects.
 
 ##### Slices
-A slice is a binary representation, on the stack, of part of an object on the heap. In this way, a String literal is actually just a slice of a String - a reference + range on the stack. A slice [borrows](#Borrowing) from the original object, ensuring safety.
+A slice is a binary representation, on the stack, of part of an object on the heap. In this way, a String literal is actually just a slice of a String - a reference + range on the stack. A slice [borrows](#Borrowing) from the original object to ensure safety.
 
 ### Compound
 
@@ -417,8 +417,8 @@ fn main() {
     };
 }
 ```
-#### Propogating errros
-There are two ways to propogate errors. We're not going to talk about the first one, so let's talk about `?`! You use it to propogate errors!
+#### Propogating errors
+There are propogating an error is really just a fancy way to say "return Err(error)". It can be pretty annoying to write "if error return error" over and over, so Rust gives us a nice shorthand: the `?` operator!
 
 ```rust
 use std::io::Error;
@@ -443,7 +443,10 @@ fn read_username_from_file() -> Result<String, Error> {
 
 #### When to panic!
 * The bad state is not something that’s expected to happen occasionally
-* Your code after this point needs to rely on not being in this bad state
+* Code after this point needs to rely on not being in this bad state
 * There’s not a good way to encode this information in the types you use
 
----
+--- (To be continued)
+
+##### TODO
+Lifetimes, multithreading, Arc, Mutex, and all of that ~~complicated~~ *fun* stuff.
