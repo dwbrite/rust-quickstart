@@ -2,7 +2,7 @@
 
 Rust is great language, if a bit unorthodox. The coolest part is that in Safe Rust, you will never encounter undefined behaviour.
 
-This document explains the core concepts of Rust, but puts the responsibility of intuitive understanding on you. For example, you can read about "borrowing" and understand the concept, but you may not *intuitively understand it* until you've worked with it in Rust for a while. Good luck.
+This document explains the core concepts of Rust, but puts the responsibility of intuitive understanding on you. For example, you can read about "borrowing" and understand the concept, but you may not *intuitively understand it* until you've worked with the borrow checker for a while. Good luck.
 
 I'm creating this file to document how *I* learned Rust, from a fairly advanced programmer's perspective. I hope that it can be of use to you, whomever you are, for learning Rust without having to wade through the original books.
 
@@ -418,7 +418,7 @@ fn main() {
 }
 ```
 #### Propogating errors
-There are propogating an error is really just a fancy way to say "return Err(error)". It can be pretty annoying to write "if error return error" over and over, so Rust gives us a nice shorthand: the `?` operator!
+Propogating an error is really just a fancy way to say "return Err(error)". It can be pretty annoying to write "if error return error" over and over, so Rust gives us a nice shorthand: the `?` operator!
 
 ```rust
 use std::io::Error;
